@@ -64,7 +64,7 @@ const stemCategories = {
       "Brushing her sleeve,",
       "Despite fearful eyes,",
       "With ink-stained, restless fingers",
-      "Without warning, a colder stare",
+      "Suddenly, a colder stare",
       "Except for that trembling jaw,",
       "Instead of charm,"
     ],
@@ -112,7 +112,7 @@ const stemCategories = {
       "Beyond memory,",
       "Memories of,",
       "Through hindsight,",
-      "Looking back,",
+      "In hindsight,",
       "Across once-forgotten moments,"
     ],
     harder: [
@@ -191,10 +191,10 @@ const stemCategories = {
       "Around the table, uneasy silence,",
       "By the doorway, held breath,",
       "Near the ceiling, humming light,",
-      "Across the floorboards, creeping cold,",
+      "Along the floorboards, creeping cold,",
       "Under the lamp, nervous shadows,",
       "Beside the window, quiet tapping,",
-      "Behind the curtain, faint movement,",
+      "Beyond the curtain, faint movement,",
       "Within the walls, muffled voices,",
       "Rattling through the pipes,",
       "Shivering under fluorescent light,",
