@@ -1,0 +1,335 @@
+:root {
+  --bg: #0f172a;
+  --panel: #1e293b;
+  --panel-2: #111827;
+  --text: #f8fafc;
+  --border: #334155;
+  --easy: #0f766e;
+  --hard: #6d28d9;
+  --easy-text: #6ee7b7;
+  --hard-text: #c4b5fd;
+  --cat-action: #22c55e;
+  --cat-desc-character: #a855f7;
+  --cat-desc-setting: #3b82f6;
+  --cat-thinking: #14b8a6;
+  --cat-feeling: #f43f5e;
+  --cat-atmosphere: #6366f1;
+  --cat-story: #f59e0b;
+  --stem-size: 26px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.app {
+  max-width: 100vw;
+  min-height: 100vh;
+  padding: 12px;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.btn {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text);
+  background: #1d4ed8;
+  cursor: pointer;
+  padding: 8px 12px;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.font-control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.card[data-mode="dual"] {
+  grid-column: span 2;
+}
+
+.card[data-mode="single"] {
+  grid-column: span 1;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.card-header {
+  background: var(--panel-2);
+  border-bottom: 1px solid var(--border);
+  padding: 6px 10px;
+}
+
+.card-title {
+  margin: 0;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  text-align: center;
+}
+
+.difficulty-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: calc((100vh - 140px) / 2);
+}
+
+.difficulty.easier {
+  border-right: 1px solid var(--border);
+}
+
+.difficulty {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.difficulty-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 8px;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #cbd5e1;
+}
+
+.header-actions {
+  display: flex;
+  gap: 4px;
+}
+
+.panel-roll {
+  border: 1px solid rgba(248, 250, 252, 0.2);
+  background: rgba(15, 23, 42, 0.35);
+  color: rgba(248, 250, 252, 0.6);
+  width: 1.55em;
+  height: 1.55em;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  font-size: 0.95em;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.panel-roll:hover {
+  color: rgba(248, 250, 252, 0.82);
+  border-color: rgba(248, 250, 252, 0.32);
+}
+
+.panel-add {
+  border: 1px solid rgba(248, 250, 252, 0.2);
+  background: rgba(15, 23, 42, 0.35);
+  color: rgba(248, 250, 252, 0.6);
+  width: 1.55em;
+  height: 1.55em;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  font-size: 1.05em;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.panel-add:hover {
+  color: rgba(248, 250, 252, 0.82);
+  border-color: rgba(248, 250, 252, 0.32);
+}
+
+.line-list {
+  list-style: none;
+  margin: 0;
+  padding: 6px 8px 8px;
+  display: grid;
+  gap: 6px;
+  overflow: hidden;
+  flex: 1;
+  min-height: 0;
+}
+
+.line-item {
+  position: relative;
+  font-size: var(--stem-size);
+  line-height: 1.05;
+  padding: 2px 0 2px 0.8em;
+  font-weight: 600;
+}
+
+.line-item::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0.02em;
+}
+
+.card[data-category="action"] .card-header {
+  background: color-mix(in srgb, var(--cat-action) 18%, var(--panel-2));
+}
+
+.card[data-category="thinking"] .card-header {
+  background: color-mix(in srgb, var(--cat-thinking) 18%, var(--panel-2));
+}
+
+.card[data-category="feeling"] .card-header {
+  background: color-mix(in srgb, var(--cat-feeling) 18%, var(--panel-2));
+}
+
+.card[data-category="atmosphere"] .card-header {
+  background: color-mix(in srgb, var(--cat-atmosphere) 18%, var(--panel-2));
+}
+
+.card[data-category="story"] .card-header {
+  background: color-mix(in srgb, var(--cat-story) 18%, var(--panel-2));
+}
+
+.card[data-category="description"] .card-header {
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--cat-desc-character) 18%, var(--panel-2)) 0%,
+    color-mix(in srgb, var(--cat-desc-character) 18%, var(--panel-2)) 50%,
+    color-mix(in srgb, var(--cat-desc-setting) 18%, var(--panel-2)) 50%,
+    color-mix(in srgb, var(--cat-desc-setting) 18%, var(--panel-2)) 100%
+  );
+}
+
+.card[data-category="action"] .difficulty-header {
+  background: color-mix(in srgb, var(--cat-action) 24%, transparent);
+}
+
+.card[data-category="thinking"] .difficulty-header {
+  background: color-mix(in srgb, var(--cat-thinking) 24%, transparent);
+}
+
+.card[data-category="feeling"] .difficulty-header {
+  background: color-mix(in srgb, var(--cat-feeling) 24%, transparent);
+}
+
+.card[data-category="atmosphere"] .difficulty-header {
+  background: color-mix(in srgb, var(--cat-atmosphere) 24%, transparent);
+}
+
+.card[data-category="story"] .difficulty-header {
+  background: color-mix(in srgb, var(--cat-story) 24%, transparent);
+}
+
+.card[data-category="description"] .difficulty.easier .difficulty-header {
+  background: color-mix(in srgb, var(--cat-desc-character) 24%, transparent);
+}
+
+.card[data-category="description"] .difficulty.harder .difficulty-header {
+  background: color-mix(in srgb, var(--cat-desc-setting) 24%, transparent);
+}
+
+.card[data-category="action"] .line-item,
+.card[data-category="action"] .line-item::before {
+  color: var(--cat-action);
+}
+
+.card[data-category="thinking"] .line-item,
+.card[data-category="thinking"] .line-item::before {
+  color: var(--cat-thinking);
+}
+
+.card[data-category="feeling"] .line-item,
+.card[data-category="feeling"] .line-item::before {
+  color: var(--cat-feeling);
+}
+
+.card[data-category="atmosphere"] .line-item,
+.card[data-category="atmosphere"] .line-item::before {
+  color: var(--cat-atmosphere);
+}
+
+.card[data-category="story"] .line-item,
+.card[data-category="story"] .line-item::before {
+  color: var(--cat-story);
+}
+
+.card[data-category="description"] .difficulty.easier .line-item,
+.card[data-category="description"] .difficulty.easier .line-item::before {
+  color: var(--cat-desc-character);
+}
+
+.card[data-category="description"] .difficulty.harder .line-item,
+.card[data-category="description"] .difficulty.harder .line-item::before {
+  color: var(--cat-desc-setting);
+}
+
+.single-column-card .difficulty-columns {
+  grid-template-columns: 1fr;
+}
+
+.difficulty.generic .difficulty-header {
+  background: color-mix(in srgb, #2563eb 20%, transparent);
+}
+
+.difficulty.generic .line-item {
+  color: #dbeafe;
+}
+
+.difficulty.generic .line-item::before {
+  color: #93c5fd;
+}
+
+@media (max-width: 1200px) {
+  .cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .card[data-mode="dual"],
+  .card[data-mode="single"] {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 900px) {
+  .difficulty-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .difficulty.easier {
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 680px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Story Stem Display</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section class="controls">
+        <button id="shuffle-all" class="btn">Shuffle All</button>
+        <label class="font-control" for="font-size-slider">
+          Size
+          <input id="font-size-slider" type="range" min="20" max="64" value="26" />
+          <span id="font-size-value">26px</span>
+        </label>
+      </section>
+
+      <section id="cards" class="cards"></section>
+    </main>
+
+    <template id="card-template">
+      <article class="card">
+        <header class="card-header">
+          <h2 class="card-title"></h2>
+        </header>
+        <div class="difficulty-columns">
+          <section class="difficulty easier">
+            <div class="difficulty-header">
+              <span>Easier</span>
+              <div class="header-actions">
+                <button class="panel-roll" data-roll-difficulty="easier" aria-label="Shuffle easier stems">↻</button>
+                <button class="panel-add" data-add-difficulty="easier" aria-label="Add easier stem">+</button>
+              </div>
+            </div>
+            <ul class="line-list" data-difficulty-list="easier"></ul>
+          </section>
+          <section class="difficulty harder">
+            <div class="difficulty-header">
+              <span>Harder</span>
+              <div class="header-actions">
+                <button class="panel-roll" data-roll-difficulty="harder" aria-label="Shuffle harder stems">↻</button>
+                <button class="panel-add" data-add-difficulty="harder" aria-label="Add harder stem">+</button>
+              </div>
+            </div>
+            <ul class="line-list" data-difficulty-list="harder"></ul>
+          </section>
+        </div>
+      </article>
+    </template>
+
+    <template id="single-card-template">
+      <article class="card single-column-card">
+        <header class="card-header">
+          <h2 class="card-title"></h2>
+        </header>
+        <div class="difficulty-columns">
+          <section class="difficulty generic">
+            <div class="difficulty-header">
+              <span>Generic</span>
+              <div class="header-actions">
+                <button class="panel-roll" data-roll-difficulty="generic" aria-label="Shuffle generic stems">↻</button>
+                <button class="panel-add" data-add-difficulty="generic" aria-label="Add generic stem">+</button>
+              </div>
+            </div>
+            <ul class="line-list" data-difficulty-list="generic"></ul>
+          </section>
+        </div>
+      </article>
+    </template>
+
+    <script src="./app.js"></script>
+  </body>
+  </html>
