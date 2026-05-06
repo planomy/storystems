@@ -594,22 +594,6 @@ function fitPreservingCurrent(targetList, bank) {
   fitLinesToContainer(targetList, [...uniqueCurrent, ...missing]);
 }
 
-function appendOneLine(targetList, bank) {
-  const current = Array.from(targetList.querySelectorAll(".line-item")).map((el) => el.textContent);
-  const normalizedBank = bank.map((stem) => displayStem(stem));
-  const unused = normalizedBank.filter((stem) => !current.includes(stem));
-  const pool = unused.length > 0 ? unused : normalizedBank;
-  const next = pool[Math.floor(Math.random() * pool.length)];
-  if (!next) return false;
-  const li = createLineItem(next);
-  targetList.appendChild(li);
-  if (targetList.scrollHeight > targetList.clientHeight + 1) {
-    li.remove();
-    return false;
-  }
-  return true;
-}
-
 function refitAllPanels() {
   document.querySelectorAll(".card").forEach((card) => {
     if (card.dataset.mode === "single") {
@@ -653,9 +637,7 @@ function createCard(categoryKey) {
   card.querySelector(".difficulty.col-left .line-list").setAttribute("data-difficulty-list", keys[0]);
   card.querySelector(".difficulty.col-right .line-list").setAttribute("data-difficulty-list", keys[1]);
   card.querySelector(".difficulty.col-left .panel-roll").dataset.rollDifficulty = keys[0];
-  card.querySelector(".difficulty.col-left .panel-add").dataset.addDifficulty = keys[0];
   card.querySelector(".difficulty.col-right .panel-roll").dataset.rollDifficulty = keys[1];
-  card.querySelector(".difficulty.col-right .panel-add").dataset.addDifficulty = keys[1];
 
   const leftLabel = card.querySelector(".difficulty.col-left .difficulty-header span");
   const rightLabel = card.querySelector(".difficulty.col-right .difficulty-header span");
@@ -664,14 +646,6 @@ function createCard(categoryKey) {
   card.querySelectorAll(".panel-roll").forEach((button) => {
     button.addEventListener("click", () => {
       fillDifficulty(card, categoryKey, button.dataset.rollDifficulty);
-    });
-  });
-  card.querySelectorAll(".panel-add").forEach((button) => {
-    button.addEventListener("click", () => {
-      const difficulty = button.dataset.addDifficulty;
-      const listEl = card.querySelector(`[data-difficulty-list="${difficulty}"]`);
-      const added = appendOneLine(listEl, stemCategories[categoryKey][difficulty]);
-      if (!added) return;
     });
   });
   fillCard(card, categoryKey);
@@ -685,11 +659,6 @@ function createSingleCard(categoryKey) {
   card.dataset.category = categoryKey;
   card.dataset.mode = "single";
   card.querySelector(".panel-roll").addEventListener("click", () => fillGeneric(card, categoryKey));
-  card.querySelector(".panel-add").addEventListener("click", () => {
-    const listEl = card.querySelector('[data-difficulty-list="generic"]');
-    const added = appendOneLine(listEl, genericCategories[categoryKey]);
-    if (!added) return;
-  });
   fillGeneric(card, categoryKey);
   return card;
 }
