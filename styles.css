@@ -102,7 +102,7 @@ body {
   height: calc((100vh - 140px) / 2);
 }
 
-.difficulty.easier {
+.difficulty.col-left {
   border-right: 1px solid var(--border);
 }
 
@@ -243,11 +243,11 @@ body {
   background: color-mix(in srgb, var(--cat-story) 24%, transparent);
 }
 
-.card[data-category="description"] .difficulty.easier .difficulty-header {
+.card[data-category="description"] .difficulty.col-left .difficulty-header {
   background: color-mix(in srgb, var(--cat-desc-character) 24%, transparent);
 }
 
-.card[data-category="description"] .difficulty.harder .difficulty-header {
+.card[data-category="description"] .difficulty.col-right .difficulty-header {
   background: color-mix(in srgb, var(--cat-desc-setting) 24%, transparent);
 }
 
@@ -276,13 +276,13 @@ body {
   color: var(--cat-story);
 }
 
-.card[data-category="description"] .difficulty.easier .line-item,
-.card[data-category="description"] .difficulty.easier .line-item::before {
+.card[data-category="description"] .difficulty.col-left .line-item,
+.card[data-category="description"] .difficulty.col-left .line-item::before {
   color: var(--cat-desc-character);
 }
 
-.card[data-category="description"] .difficulty.harder .line-item,
-.card[data-category="description"] .difficulty.harder .line-item::before {
+.card[data-category="description"] .difficulty.col-right .line-item,
+.card[data-category="description"] .difficulty.col-right .line-item::before {
   color: var(--cat-desc-setting);
 }
 
@@ -318,7 +318,7 @@ body {
     grid-template-columns: 1fr;
   }
 
-  .difficulty.easier {
+  .difficulty.col-left {
     border-right: 0;
     border-bottom: 1px solid var(--border);
   }

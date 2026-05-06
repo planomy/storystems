@@ -1,8 +1,41 @@
 const stemCategories = {
   action: {
-    easier: [
-      "Stepping into the room,",
+    self: [
+      "Adjusting his glasses,",
+      "Pushing her glasses higher,",
+      "Straightening his collar,",
+      "Tugging at her sleeve,",
+      "Rubbing the sleep from his eyes,",
       "Taking a deep breath,",
+      "Scratching at a loose thread,",
+      "Smoothing her hair behind one ear,",
+      "Checking his watch again,",
+      "Twisting the ring on her finger,",
+      "Folding his arms tightly,",
+      "Picking at the edge of his nail,",
+      "Wiping his palms on his jeans,",
+      "Rolling her shoulders back,",
+      "Steadying both hands,",
+      "Pressing his lips together,",
+      "Tapping one foot under the table,",
+      "Clenching the strap of her bag,",
+      "Pulling his jumper sleeves down,",
+      "Brushing dust from her knees,",
+      "Tucking the note into his pocket,",
+      "Patting his pockets for the key,",
+      "Lacing her fingers together,",
+      "Pinching the bridge of his nose,",
+      "Dragging a hand through his hair,",
+      "Biting the inside of her cheek,",
+      "Clearing his throat softly,",
+      "Shifting the bag on her shoulder,",
+      "Pressing one hand to his chest,",
+      "Hooking a thumb under his collar,",
+      "Running his thumb over the coin,",
+      "Holding his breath for a second,"
+    ],
+    surroundings: [
+      "Stepping into the room,",
       "Reaching for the handle,",
       "Turning the corner,",
       "Moving toward the light,",
@@ -20,10 +53,8 @@ const stemCategories = {
       "Tracing a finger along the map,",
       "Gripping the rail tightly,",
       "Ducking under the beam,",
-      "Steadying both hands,",
       "Pressing one ear to the door,",
       "Sliding the drawer open,",
-      "Tucking the note into his pocket,",
       "Dragging the chair aside,",
       "Peering through the cracked glass,",
       "Wiping dust from the lid,",
@@ -45,9 +76,7 @@ const stemCategories = {
       "Dragging his sleeve across the glass,",
       "Hooking one foot over the fence,",
       "Pressing the torch beneath his chin,",
-      "Turning the photograph over,"
-    ],
-    harder: [
+      "Turning the photograph over,",
       "Threading through the half-light,",
       "Squaring against the storm,",
       "Crossing the threshold unflinching,",
@@ -71,7 +100,7 @@ const stemCategories = {
     ]
   },
   description: {
-    easier: [
+    character: [
       "In addition to dark",
       "Around her neck,",
       "Her athletic build",
@@ -103,7 +132,7 @@ const stemCategories = {
       "Behind round glasses,",
       "Her careful posture suggested"
     ],
-    harder: [
+    setting: [
       "Beneath the rafters,",
       "Outside, pooled silence,",
       "Thin Winter light",
@@ -133,11 +162,12 @@ const stemCategories = {
       "Inside the voices were",
       "Blocking the entrance,",
       "Remaining hidden,",
-      "Shaped by years of"
+      "Shaped by years of",
+      "The room was littered with",
     ]
   },
   thinking: {
-    easier: [
+    past: [
       "Back to that night,",
       "Confronting his chequered past,",
       "A slideshow of memories,",
@@ -159,32 +189,32 @@ const stemCategories = {
       "In hindsight,",
       "Across once-forgotten moments,"
     ],
-    harder: [
-      "In this moment, priorities reordering,",
-      "Under present pressure, colder logic,",
-      "Within this silence, an argument unfolding,",
-      "At thought's edge, immediate risk,",
-      "Between instinct and evidence, a fracture,",
+    present: [
+      "In this moment,",
+      "Under present pressure,",
+      "Within this silence,",
+      "At thought's edge,",
+      "Between instinct and evidence,",
       "Attempting to climb the ladder of doubt,",
       "His brow creased when",
       "Hesitant now, she considered",
-      "With grim precision, trade-offs exposed,",
-      "With deliberate clarity, his next move,",
+      "With grim precision,",
+      "With deliberate clarity,",
       "Condemned by his failings,",
-      "Two choices stared at him:",
-      "Amid the noise, usable logic,",
-      "Inside the moment, one premise standing,",
-      "Under this weight, options narrowing,",
-      "At the center, a live calculation,",
+      "Two choices stared at him-",
+      "Amid the noise,",
+      "Inside the moment,",
+      "Under this weight,",
+      "At the center,",
       "Within seconds, a new angle,",
-      "In plain sight, hidden consequence,",
-      "Against the clock, cleaner judgment,",
+      "In plain sight,",
+      "Against the clock,",
       "Right now, the pattern undeniable,",
       "Reliving the moment,"
     ]
   },
   feeling: {
-    easier: [
+    positive: [
       "Wrapped in a warm blanket of assurance,",
       "For once, he felt,",
       "Something brightened in her,",
@@ -208,7 +238,7 @@ const stemCategories = {
       "Drenched in praise, he",
       "The thrill never faded as"
     ],
-    harder: [
+    negative: [
       "Beneath a cloud of suspicion,",
       "Shaken by a storm of insults,",
       "His mouth went dry,",
@@ -242,7 +272,7 @@ const stemCategories = {
     ]
   },
   atmosphere: {
-    easier: [
+    inside: [
       "Inside the room, rising heat,",
       "Through the hallway, echoing steps,",
       "Around the table, uneasy silence,",
@@ -265,7 +295,7 @@ const stemCategories = {
       "Air tightened,",
       "Unusual sounds crept"
     ],
-    harder: [
+    outside: [
       "Across the valley, unraveling thunder,",
       "Over the marsh, ashen moonlight,",
       "Along the ridge, slate-worrying wind,",
@@ -289,7 +319,7 @@ const stemCategories = {
     ]
   },
   story: {
-    easier: [
+    time: [
       "Since childhood,",
       "That morning,",
       "Until now,",
@@ -307,8 +337,8 @@ const stemCategories = {
       "At that moment,",
       "It took less than a minute to",
       "In the few seconds it took,",
-      "By the time,",
-      "Regardless of,",
+      "By the time",
+      "Regardless of",
       "Before anyone noticed,",
       "By the following morning,",
       "In the years since,",
@@ -318,10 +348,26 @@ const stemCategories = {
       "By the end of summer,",
       "After the final bell,",
       "In the last hour,",
-      "From that day onward,"
+      "From that day onward,",
+      "For the moment at least,",
+      "Within a few eye-blinks,",
+      "During the wait,",
+      "It was a breathless moment when",
+      "After a long pause,",
+      "With little time to",
+      "In the meantime",
+      "When the moment passed",
+      "It took an eternity to",
+      "When she awoke",
+      "Before he could",
+      "In the coming weeks,",
     ],
-    harder: [
+    situation: [
       "By accident,",
+      "Could she have really",
+      "It looked as if",
+      "The theory was that",
+      "But on impulse",
       "In secret,",
       "Under pressure,",
       "Against the odds,",
@@ -347,8 +393,6 @@ const stemCategories = {
       "The most intriguing",
       "Stark differences existed in",
       "Among the many uncertainties",
-      "The room was littered with",
-      "In the coming weeks,",
       "With the ability to",
       "Not that it mattered,",
       "Other than",
@@ -362,18 +406,45 @@ const stemCategories = {
       "Certain things always lingered:",
       "Dominating the news,",
       "It was difficult to decide",
-      "As a precaution"
+      "As a precaution",
+      "It didn't matter that",
+      "Now that it was",
+      "It wouldn't be fair if",
+      "If only",
+      "It apparently was",
+      "All too often",
+      "Only then would she",
+      "Silence fell when",
+      "Could it mean that",
+      "It never really was",
+      "However if she",
+      "Nobody could've guessed",
+      "Most of it was",
+      "With no available",
+      "The real surprise was",
+      "It wouldn't be long until",
+      
     ]
   }
 };
 
-const dualCategoryLabels = {
-  action: { left: "Easier", right: "Harder" },
-  description: { left: "Character", right: "Setting" },
-  thinking: { left: "Past", right: "Present" },
-  feeling: { left: "Positive", right: "Negative" },
-  atmosphere: { left: "Inside", right: "Outside" },
-  story: { left: "Time", right: "Situation" }
+/** Sub-heading keys per category (match stemCategories + on-screen labels). */
+const stemColumnKeys = {
+  action: ["self", "surroundings"],
+  description: ["character", "setting"],
+  thinking: ["past", "present"],
+  feeling: ["positive", "negative"],
+  atmosphere: ["inside", "outside"],
+  story: ["time", "situation"],
+};
+
+const stemColumnLabels = {
+  action: { self: "Self", surroundings: "Surroundings" },
+  description: { character: "Character", setting: "Setting" },
+  thinking: { past: "Past", present: "Present" },
+  feeling: { positive: "Positive", negative: "Negative" },
+  atmosphere: { inside: "Inside", outside: "Outside" },
+  story: { time: "Time", situation: "Situation" },
 };
 
 const genericCategories = {
@@ -423,22 +494,6 @@ const genericCategories = {
   ]
 };
 
-function firstPhraseOnly(text) {
-  if (!text) return "";
-  const chunk = text.split(",")[0].trim();
-  return chunk ? `${chunk},` : "";
-}
-
-function trimAllStemBanks(banks) {
-  Object.values(banks).forEach((category) => {
-    Object.keys(category).forEach((level) => {
-      category[level] = category[level].map(firstPhraseOnly).filter(Boolean);
-    });
-  });
-}
-
-trimAllStemBanks(stemCategories);
-
 function shuffle(list) {
   const copy = [...list];
   for (let i = copy.length - 1; i > 0; i -= 1) {
@@ -448,19 +503,16 @@ function shuffle(list) {
   return copy;
 }
 
-function normalizeStem(text) {
+/** Show stems exactly as authored (trim + single-space only; never add commas). */
+function displayStem(text) {
   if (!text) return "";
-  const cleaned = text.trim().replace(/\s+/g, " ");
-  if (cleaned.endsWith("...") || cleaned.endsWith(",") || cleaned.endsWith("\"")) {
-    return cleaned;
-  }
-  return `${cleaned},`;
+  return text.trim().replace(/\s+/g, " ");
 }
 
 function createLineItem(text) {
   const li = document.createElement("li");
   li.className = "line-item";
-  li.textContent = normalizeStem(text);
+  li.textContent = displayStem(text);
   return li;
 }
 
@@ -481,14 +533,14 @@ function fitLinesToContainer(targetList, orderedLines) {
       li.remove();
       break;
     }
-    rendered.push(normalizeStem(text));
+    rendered.push(displayStem(text));
   }
   return rendered;
 }
 
 function fitPreservingCurrent(targetList, bank) {
   const current = Array.from(targetList.querySelectorAll(".line-item")).map((el) => el.textContent);
-  const normalizedBank = bank.map((stem) => normalizeStem(stem));
+  const normalizedBank = bank.map((stem) => displayStem(stem));
   const uniqueCurrent = [];
   current.forEach((stem) => {
     if (!uniqueCurrent.includes(stem)) uniqueCurrent.push(stem);
@@ -499,7 +551,7 @@ function fitPreservingCurrent(targetList, bank) {
 
 function appendOneLine(targetList, bank) {
   const current = Array.from(targetList.querySelectorAll(".line-item")).map((el) => el.textContent);
-  const normalizedBank = bank.map((stem) => normalizeStem(stem));
+  const normalizedBank = bank.map((stem) => displayStem(stem));
   const unused = normalizedBank.filter((stem) => !current.includes(stem));
   const pool = unused.length > 0 ? unused : normalizedBank;
   const next = pool[Math.floor(Math.random() * pool.length)];
@@ -520,9 +572,10 @@ function refitAllPanels() {
       fitPreservingCurrent(listEl, genericCategories[card.dataset.category]);
       return;
     }
-    ["easier", "harder"].forEach((difficulty) => {
-      const listEl = card.querySelector(`[data-difficulty-list="${difficulty}"]`);
-      fitPreservingCurrent(listEl, stemCategories[card.dataset.category][difficulty]);
+    const keys = stemColumnKeys[card.dataset.category];
+    keys.forEach((columnKey) => {
+      const listEl = card.querySelector(`[data-difficulty-list="${columnKey}"]`);
+      fitPreservingCurrent(listEl, stemCategories[card.dataset.category][columnKey]);
     });
   });
 }
@@ -540,8 +593,9 @@ function fillGeneric(card, categoryKey) {
 }
 
 function fillCard(card, categoryKey) {
-  fillDifficulty(card, categoryKey, "easier");
-  fillDifficulty(card, categoryKey, "harder");
+  const [a, b] = stemColumnKeys[categoryKey];
+  fillDifficulty(card, categoryKey, a);
+  fillDifficulty(card, categoryKey, b);
 }
 
 function createCard(categoryKey) {
@@ -549,11 +603,19 @@ function createCard(categoryKey) {
   const card = template.content.firstElementChild.cloneNode(true);
   card.querySelector(".card-title").textContent = categoryKey;
   card.dataset.category = categoryKey;
-  const labels = dualCategoryLabels[categoryKey] || { left: "Easier", right: "Harder" };
-  const easierLabel = card.querySelector(".difficulty.easier .difficulty-header span");
-  const harderLabel = card.querySelector(".difficulty.harder .difficulty-header span");
-  easierLabel.textContent = labels.left;
-  harderLabel.textContent = labels.right;
+  const keys = stemColumnKeys[categoryKey];
+  const labels = stemColumnLabels[categoryKey];
+  card.querySelector(".difficulty.col-left .line-list").setAttribute("data-difficulty-list", keys[0]);
+  card.querySelector(".difficulty.col-right .line-list").setAttribute("data-difficulty-list", keys[1]);
+  card.querySelector(".difficulty.col-left .panel-roll").dataset.rollDifficulty = keys[0];
+  card.querySelector(".difficulty.col-left .panel-add").dataset.addDifficulty = keys[0];
+  card.querySelector(".difficulty.col-right .panel-roll").dataset.rollDifficulty = keys[1];
+  card.querySelector(".difficulty.col-right .panel-add").dataset.addDifficulty = keys[1];
+
+  const leftLabel = card.querySelector(".difficulty.col-left .difficulty-header span");
+  const rightLabel = card.querySelector(".difficulty.col-right .difficulty-header span");
+  leftLabel.textContent = labels[keys[0]];
+  rightLabel.textContent = labels[keys[1]];
   card.querySelectorAll(".panel-roll").forEach((button) => {
     button.addEventListener("click", () => {
       fillDifficulty(card, categoryKey, button.dataset.rollDifficulty);
