@@ -10,11 +10,12 @@
     <main class="app">
       <section class="controls">
         <button id="shuffle-all" class="btn">Shuffle All</button>
-        <label class="font-control" for="font-size-slider">
-          Size
-          <input id="font-size-slider" type="range" min="20" max="64" value="26" />
-          <span id="font-size-value">26px</span>
-        </label>
+        <div class="font-control" role="group" aria-label="Stem text size">
+          <span class="font-control-label">Size</span>
+          <button type="button" id="font-size-down" class="font-size-btn" aria-label="Decrease stem size">−</button>
+          <span id="font-size-value" class="font-size-value">23px</span>
+          <button type="button" id="font-size-up" class="font-size-btn" aria-label="Increase stem size">+</button>
+        </div>
       </section>
 
       <section id="cards" class="cards"></section>

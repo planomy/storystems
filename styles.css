@@ -15,7 +15,7 @@
   --cat-feeling: #f43f5e;
   --cat-atmosphere: #6366f1;
   --cat-story: #f59e0b;
-  --stem-size: 26px;
+  --stem-size: 23px;
 }
 
 * {
@@ -59,6 +59,42 @@ body {
   align-items: center;
   gap: 8px;
   font-size: 0.9rem;
+}
+
+.font-control-label {
+  margin-right: 2px;
+}
+
+.font-size-btn {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: rgba(15, 23, 42, 0.55);
+  color: var(--text);
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+
+.font-size-btn:hover:not(:disabled) {
+  border-color: rgba(248, 250, 252, 0.35);
+  background: rgba(30, 41, 59, 0.9);
+}
+
+.font-size-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.font-size-value {
+  min-width: 3.25em;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
 }
 
 .cards {

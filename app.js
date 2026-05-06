@@ -210,7 +210,22 @@ const stemCategories = {
       "In plain sight,",
       "Against the clock,",
       "Right now, the pattern undeniable,",
-      "Reliving the moment,"
+      "Reliving the moment,",
+      "She focussed on",
+      "She knew one thing:",
+      "Was it any comfort that",
+      "Collecting her thoughts,",
+      "Her excuse was",
+      "He considered",
+      "As understanding dawned",
+      "Sarcastically he thought",
+      "He figured that",
+      "He couldn't shake the idea that",
+      "A surge of dismay struck when",
+      "Her insticts said",
+      "She was unaware of",
+      "The answer was obvious-"
+
     ]
   },
   feeling: {
@@ -298,10 +313,10 @@ const stemCategories = {
     outside: [
       "Across the valley, unraveling thunder,",
       "Over the marsh, ashen moonlight,",
-      "Along the ridge, slate-worrying wind,",
-      "Beyond the courtyard, stamping horses,",
+      "Along the ridge, stiff wind,",
+      "Beyond the courtyard,",
       "Across the harbor, low horn calls,",
-      "Under the storm front, wire-tight air,",
+      "Under the storm front, brooding air,",
       "Around the house, scraping branches,",
       "Through the alley, rushing runoff,",
       "Past the treeline, rising fog,",
@@ -315,7 +330,37 @@ const stemCategories = {
       "Lightning split,",
       "Sirens carried,",
       "Branches thrashed,",
-      "Mist swallowed,"
+      "Mist swallowed,",
+      "Somewhere nearby, voices rose,",
+  "Behind him, footsteps hurried,",
+  "Around her, something shifted,",
+  "Close by, something scraped,",
+  "From every direction,",
+  "A door opened somewhere,",
+  "Nearby, a chair scraped",
+  "A loud laugh",
+  "Someone whispered his name,",
+  "Something clattered behind her,",
+  "The air filled with movement,",
+  "The noise around him sharpened,",
+  "A sudden hush spread,",
+  "Turning to look, people",
+  "Nobody moved for a second,",
+  "Drifting through",
+  "A sour smell lingered,",
+  "Warm food smells drifted past,",
+  "Dust tickled the back of his throat,",
+  "Humming nearby,",
+  "A phone rang unanswered,",
+  "Music leaked from somewhere,",
+  "In the distance, traffic",
+  "A dog barked once,",
+  "A baby started crying,",
+  "Behind her, noises of",
+  "Keys jingled nearby,",
+  "Squeaking far too noisily,",
+  "Flickering in the distance,",
+  "Pressing closer,"
     ]
   },
   story: {
@@ -659,20 +704,36 @@ function shuffleAll() {
   });
 }
 
-function bindFontSlider() {
-  const slider = document.getElementById("font-size-slider");
+function bindFontSizeControls() {
+  const minPx = 20;
+  const maxPx = 64;
+  const btnDown = document.getElementById("font-size-down");
+  const btnUp = document.getElementById("font-size-up");
   const label = document.getElementById("font-size-value");
   const root = document.documentElement;
-  const update = () => {
-    const value = `${slider.value}px`;
+
+  let px = Math.min(maxPx, Math.max(minPx, parseInt(label.textContent, 10) || 23));
+
+  const apply = () => {
+    px = Math.min(maxPx, Math.max(minPx, px));
+    const value = `${px}px`;
     root.style.setProperty("--stem-size", value);
     label.textContent = value;
+    btnDown.disabled = px <= minPx;
+    btnUp.disabled = px >= maxPx;
     refitAllPanels();
   };
-  slider.addEventListener("input", update);
-  const initial = `${slider.value}px`;
-  root.style.setProperty("--stem-size", initial);
-  label.textContent = initial;
+
+  btnDown.addEventListener("click", () => {
+    px -= 1;
+    apply();
+  });
+  btnUp.addEventListener("click", () => {
+    px += 1;
+    apply();
+  });
+
+  apply();
 }
 
 function init() {
@@ -699,7 +760,7 @@ function init() {
   });
 
   document.getElementById("shuffle-all").addEventListener("click", shuffleAll);
-  bindFontSlider();
+  bindFontSizeControls();
   shuffleAll();
 }
 
